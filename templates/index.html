@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VoltRide Electric Scooters</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">⚡ VoltRide</div>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="#scooters">Scooters</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+
+<section class="hero">
+
+    <div>
+        <h1>Ride Electric.<br>Ride Smarter.</h1>
+
+        <p>
+            Discover modern electric scooters designed
+            for city travel and everyday commuting.
+        </p>
+
+        <a class="button" href="#scooters">
+            Explore Scooters
+        </a>
+    </div>
+
+</section>
+
+
+<section id="scooters">
+
+    <h2>Our Electric Scooters</h2>
+
+    <div class="products">
+
+        {% for scooter in scooters %}
+
+        <div class="card">
+
+            <img src="{{ url_for('static',
+                     filename='images/' + scooter.image) }}"
+                 alt="{{ scooter.name }}">
+
+            <h3>{{ scooter.name }}</h3>
+
+            <p class="price">
+                {{ scooter.price }}
+            </p>
+
+            <p>Range: {{ scooter.range }}</p>
+            <p>Top Speed: {{ scooter.speed }}</p>
+            <p>Battery: {{ scooter.battery }}</p>
+
+            <button>
+                View Details
+            </button>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+<section id="contact" class="contact">
+
+    <h2>Contact Us</h2>
+
+    <p>Email: sales@voltride.example</p>
+
+    <p>Phone: +91 90000 00000</p>
+
+</section>
+
+
+<footer>
+
+    <p>© 2026 VoltRide Electric Scooters</p>
+
+</footer>
+
+
+<script src="{{ url_for('static',
+             filename='js/script.js') }}">
+</script>
+
+</body>
+
+</html>
